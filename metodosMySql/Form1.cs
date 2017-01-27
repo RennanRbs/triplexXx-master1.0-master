@@ -24,50 +24,78 @@ namespace metodosMySql
 
             try
             {
-                  conectar.Open();
-                  MySqlCommand comandoPessoa = new MySqlCommand("INSERT INTO Pessoa(Nome,Email,Cpf,Celular,Id_Lit) VALUES('"+entradaNome.Text+"','"+entradaEmail.Text+"','"+entradaCpf.Text+"','"+entradaCelular.Text+ "', '" + entradaIDLit.Text + "' )", conectar);
-                  MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(Endereço,Bairro,Rg,Telefone,Curso,Matricula,InstituicaoDeEnsino,pk_bolsista) VALUES('" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "','" + entradaIDLit.Text + "' )", conectar);
-                  MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO Remunerado(Agencia,Conta,Orientador,Fonte_bolsa) VALUES('" + entradaAgencia.Text + "','" + entradaConta.Text + "','" + entradaOrientador.Text + "','" + entradaFonteDaBolsa.Text + "' )", conectar);
-                  MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(Projeto) VALUES('" + entradaProjeto.Text + "' )", conectar);
+
+                MySqlDataReader reader;
+                conectar.Open();
 
 
-                  comandoprofessor.ExecuteNonQuery();
-                  comandoremunerado.ExecuteNonQuery();
-                  comandoPessoa.ExecuteNonQuery();
-                  comandoBolsista.ExecuteNonQuery();
-                  MessageBox.Show("Salvo com sucesso");
-                  conectar.Close();
+                MySqlCommand comandoPessoa = new MySqlCommand("INSERT INTO Pessoa(nome,email,cpf,celular,cod_lit) VALUES('" + entradaNome.Text + "','" + entradaEmail.Text + "','" + entradaCpf.Text + "','" + entradaCelular.Text + "', '" + entradaIDLit.Text + "' )", conectar);
+                MySqlCommand comandoselect = new MySqlCommand(" select id from pessoa order by id DESC limit 1", conectar);
+
+                comandoPessoa.ExecuteNonQuery();
+
+                reader = comandoselect.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+
+                    MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento) VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "' ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "')", conectar);
+                    // MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO Remunerado(agencia,conta,orientador,fonte_bolsa) VALUES('" + entradaAgencia.Text + "','" + entradaConta.Text + "','" + entradaOrientador.Text + "','" + entradaFonteDaBolsa.Text + "' )", conectar);
+                    // MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(projeto) VALUES('" + entradaProjeto.Text + "' )", conectar);
+                    reader.Close();
+                    comandoBolsista.ExecuteNonQuery();
+                    // comandoremunerado.ExecuteNonQuery();
+                    //comandoprofessor.ExecuteNonQuery();
+                    MessageBox.Show("Salvo com sucesso");
+                }
+                conectar.Close();
             }
+
+
             catch (Exception error)
             {
                 MessageBox.Show("error.." + error.Message + "Contate o suporte");
                 conectar.Close();
             }
-
-        }
+            
+                    }
  // ****************************** botao para buscar aluno ************************************************//
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                  MySqlCommand comando;
-                  MySqlDataReader reader;
-                  conectar.Open();
-                  string selecionarpessoa = "SELECT * FROM PESSOA WHERE Id_Lit = '"+entradaIDLit.Text+"'";
-                  string selecionarbolsista = "SELECT * FROM Bolsista WHERE pk_bolsista ='" + entradaIDLit.Text + "' ";
+            try{
 
+                MySqlCommand comando;
+                MySqlDataReader reader;
+                conectar.Open();
                 
-                  comando = new MySqlCommand(selecionarpessoa,conectar);
+                string selecionarpessoa = "select bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,"+
+                                          "bolsista.matricula, bolsista.curso, bolsista.telefone, pessoa.cod_lit, pessoa.celular,bolsista.datadenascimento" +
+                                          " ,pessoa.email, pessoa.cpf, pessoa.nome"+
+                                          " from bolsista, pessoa where bolsista.pessoa_id = pessoa.id and pessoa.cod_lit = "+entradaIDLit.Text+"; ";
+                
 
-                  reader = comando.ExecuteReader();
+
+                comando = new MySqlCommand(selecionarpessoa, conectar);
+
+                reader = comando.ExecuteReader();
 
 
                 if (reader.Read())
                 {
-                    entradaCelular.Text = reader.GetString("Celular");
-                    entradaCpf.Text = reader.GetString("Cpf");
-                    entradaEmail.Text = reader.GetString("Email");
-                    
+                    entradaCelular.Text = reader.GetString("celular");
+                    entradaCpf.Text = reader.GetString("cpf");
+                    entradaEmail.Text = reader.GetString("email");
+                    entradaEndereço.Text = reader.GetString("endereco");
+                    entradaNome.Text = reader.GetString("nome");
+                    entradaSemestre.Text = reader.GetString("semestre");
+                    entradaBairro.Text = reader.GetString("bairro");
+                    entradaRg.Text = reader.GetString("rg");
+                    entradaINstituiçao.Text = reader.GetString("instituicaodeensino");
+                    entradaTelefone.Text = reader.GetString("telefone");
+                    entradaDataDeNascimento.Text=reader.GetString("datadenascimento");
+
+
                 }
                 else { MessageBox.Show("sem dados com esse nome"); }
 
@@ -75,8 +103,10 @@ namespace metodosMySql
 
 
                 conectar.Close();
-                reader.Close();}
-            
+                reader.Close();
+
+            }
+
 
 
 
@@ -106,6 +136,16 @@ namespace metodosMySql
                 conectar.Close();
             }
         }
+
+
+
+
+
+
+
+
+
+
  //*************************************************************limpar a tabela **********************************************//
         private void button4_Click(object sender, EventArgs e)
         {

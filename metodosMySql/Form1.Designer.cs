@@ -91,9 +91,9 @@
             this.label27 = new System.Windows.Forms.Label();
             this.entradaOBS = new System.Windows.Forms.RichTextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.Ativar = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -670,18 +670,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(352, 20);
             this.dateTimePicker1.TabIndex = 62;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(469, 601);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(122, 30);
-            this.radioButton1.TabIndex = 63;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Desativar";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(469, 646);
@@ -701,6 +689,17 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // Ativar
+            // 
+            this.Ativar.AutoSize = true;
+            this.Ativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.Ativar.Location = new System.Drawing.Point(467, 604);
+            this.Ativar.Name = "Ativar";
+            this.Ativar.Size = new System.Drawing.Size(122, 29);
+            this.Ativar.TabIndex = 66;
+            this.Ativar.Text = "Desativar";
+            this.Ativar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -708,9 +707,9 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(737, 733);
+            this.Controls.Add(this.Ativar);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.entradaOBS);
             this.Controls.Add(this.label27);
@@ -848,9 +847,9 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.RichTextBox entradaOBS;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox Ativar;
     }
 }
 
