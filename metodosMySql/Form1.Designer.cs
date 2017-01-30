@@ -40,7 +40,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.entradaDataDeNascimento = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.entradaMatriula = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,8 +58,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.entradaINstituiçao = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -94,10 +91,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Ativar = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.radiooutra = new System.Windows.Forms.RadioButton();
+            this.radioifce = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.entradaCodigo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -204,16 +204,6 @@
             this.button2.Text = "buscar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 126);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label6
             // 
@@ -371,32 +361,10 @@
             this.entradaINstituiçao.Size = new System.Drawing.Size(202, 20);
             this.entradaINstituiçao.TabIndex = 33;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(32, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(65, 24);
-            this.checkBox1.TabIndex = 34;
-            this.checkBox1.Text = "IFCE";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(140, 12);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(68, 24);
-            this.checkBox2.TabIndex = 35;
-            this.checkBox2.Text = "Outro";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.radiooutra);
+            this.groupBox1.Controls.Add(this.radioifce);
             this.groupBox1.Location = new System.Drawing.Point(174, 351);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(260, 46);
@@ -700,6 +668,41 @@
             this.Ativar.Text = "Desativar";
             this.Ativar.UseVisualStyleBackColor = true;
             // 
+            // radiooutra
+            // 
+            this.radiooutra.AutoSize = true;
+            this.radiooutra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radiooutra.Location = new System.Drawing.Point(137, 12);
+            this.radiooutra.Name = "radiooutra";
+            this.radiooutra.Size = new System.Drawing.Size(78, 26);
+            this.radiooutra.TabIndex = 67;
+            this.radiooutra.TabStop = true;
+            this.radiooutra.Text = "Outra";
+            this.radiooutra.UseVisualStyleBackColor = true;
+            // 
+            // radioifce
+            // 
+            this.radioifce.AutoSize = true;
+            this.radioifce.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radioifce.Location = new System.Drawing.Point(20, 12);
+            this.radioifce.Name = "radioifce";
+            this.radioifce.Size = new System.Drawing.Size(72, 26);
+            this.radioifce.TabIndex = 68;
+            this.radioifce.TabStop = true;
+            this.radioifce.Text = "IFCE";
+            this.radioifce.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::metodosMySql.Properties.Resources.lit;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(284, 141);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 67;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,6 +710,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(737, 733);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Ativar);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -753,7 +757,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.entradaMatriula);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.entradaDataDeNascimento);
             this.Controls.Add(this.label5);
@@ -770,13 +773,13 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.entradaCodigo.ResumeLayout(false);
             this.entradaCodigo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -796,7 +799,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox entradaDataDeNascimento;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox entradaMatriula;
         private System.Windows.Forms.Label label7;
@@ -815,8 +817,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox entradaINstituiçao;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -850,6 +850,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox Ativar;
+        private System.Windows.Forms.RadioButton radiooutra;
+        private System.Windows.Forms.RadioButton radioifce;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

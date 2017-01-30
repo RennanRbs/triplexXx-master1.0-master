@@ -42,11 +42,13 @@ namespace metodosMySql
 
                     MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento) VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "' ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "')", conectar);
                     // MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO Remunerado(agencia,conta,orientador,fonte_bolsa) VALUES('" + entradaAgencia.Text + "','" + entradaConta.Text + "','" + entradaOrientador.Text + "','" + entradaFonteDaBolsa.Text + "' )", conectar);
-                    // MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(projeto) VALUES('" + entradaProjeto.Text + "' )", conectar);
+                     //MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(pessoa_id,projeto) VALUES(" + reader.GetString("id") + " ,'" + entradaProjeto.Text + "' )", conectar);
+
+
                     reader.Close();
                     comandoBolsista.ExecuteNonQuery();
                     // comandoremunerado.ExecuteNonQuery();
-                    //comandoprofessor.ExecuteNonQuery();
+                   // comandoprofessor.ExecuteNonQuery();
                     MessageBox.Show("Salvo com sucesso");
                 }
                 conectar.Close();
@@ -63,59 +65,66 @@ namespace metodosMySql
  // ****************************** botao para buscar aluno ************************************************//
         private void button2_Click(object sender, EventArgs e)
         {
-            try{
-
-                MySqlCommand comando;
-                MySqlDataReader reader;
-                conectar.Open();
-                
-                string selecionarpessoa = "select bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,"+
-                                          "bolsista.matricula, bolsista.curso, bolsista.telefone, pessoa.cod_lit, pessoa.celular,bolsista.datadenascimento" +
-                                          " ,pessoa.email, pessoa.cpf, pessoa.nome"+
-                                          " from bolsista, pessoa where bolsista.pessoa_id = pessoa.id and pessoa.cod_lit = "+entradaIDLit.Text+"; ";
-                
-
-
-                comando = new MySqlCommand(selecionarpessoa, conectar);
-
-                reader = comando.ExecuteReader();
-
-
-                if (reader.Read())
+            if (entradaIDLit.Text != "")
+            {
+                try
                 {
-                    entradaCelular.Text = reader.GetString("celular");
-                    entradaCpf.Text = reader.GetString("cpf");
-                    entradaEmail.Text = reader.GetString("email");
-                    entradaEndereço.Text = reader.GetString("endereco");
-                    entradaNome.Text = reader.GetString("nome");
-                    entradaSemestre.Text = reader.GetString("semestre");
-                    entradaBairro.Text = reader.GetString("bairro");
-                    entradaRg.Text = reader.GetString("rg");
-                    entradaINstituiçao.Text = reader.GetString("instituicaodeensino");
-                    entradaTelefone.Text = reader.GetString("telefone");
-                    entradaDataDeNascimento.Text=reader.GetString("datadenascimento");
 
+                    MySqlCommand comando;
+                    MySqlDataReader reader;
+                    conectar.Open();
+
+                    string selecionarpessoa = "select bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,bolsista.cep ," +
+                                              "bolsista.matricula, bolsista.curso, bolsista.telefone, pessoa.cod_lit, pessoa.celular,bolsista.datadenascimento" +
+                                              " ,pessoa.email, pessoa.cpf, pessoa.nome " +
+                                              " from bolsista, pessoa where bolsista.pessoa_id =  pessoa.id and pessoa.cod_lit = " + entradaIDLit.Text + "; ";
+
+
+
+                    comando = new MySqlCommand(selecionarpessoa, conectar);
+
+                    reader = comando.ExecuteReader();
+
+
+                    if (reader.Read())
+                    {
+                        entradaMatriula.Text = reader.GetString("matricula");
+                        entradaCelular.Text = reader.GetString("celular");
+                        entradaCpf.Text = reader.GetString("cpf");
+                        entradaEmail.Text = reader.GetString("email");
+                        entradaCep.Text = reader.GetString("cep");
+                        entradaEndereço.Text = reader.GetString("endereco");
+                        entradaNome.Text = reader.GetString("nome");
+                        entradaSemestre.Text = reader.GetString("semestre");
+                        entradaBairro.Text = reader.GetString("bairro");
+                        entradaRg.Text = reader.GetString("rg");
+                        entradaINstituiçao.Text = reader.GetString("instituicaodeensino");
+                        entradaTelefone.Text = reader.GetString("telefone");
+                        entradaDataDeNascimento.Text = reader.GetString("datadenascimento");
+
+
+
+                    }
+                    else { MessageBox.Show("sem dados com esse nome"); }
+
+
+
+
+                    conectar.Close();
+                    reader.Close();
 
                 }
-                else { MessageBox.Show("sem dados com esse nome"); }
 
 
 
 
-                conectar.Close();
-                reader.Close();
-
+                catch (Exception error)
+                {
+                    MessageBox.Show("error.." + error.Message);
+                    conectar.Close();
+                }
             }
-
-
-
-
-            catch (Exception error)
-            {
-                MessageBox.Show("error.." + error.Message);
-                conectar.Close();
-            }
-
+            else { MessageBox.Show("Campo  em Branco"); }
 
            
         }
@@ -168,6 +177,11 @@ namespace metodosMySql
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }
