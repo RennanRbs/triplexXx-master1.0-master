@@ -42,7 +42,7 @@ namespace metodosMySql
 
                     MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento) VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "' ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "')", conectar);
                     // MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO Remunerado(agencia,conta,orientador,fonte_bolsa) VALUES('" + entradaAgencia.Text + "','" + entradaConta.Text + "','" + entradaOrientador.Text + "','" + entradaFonteDaBolsa.Text + "' )", conectar);
-                     //MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(pessoa_id,projeto) VALUES(" + reader.GetString("id") + " ,'" + entradaProjeto.Text + "' )", conectar);
+                    //MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(pessoa_id,projeto) VALUES(" + reader.GetString("id") + " ,'" + entradaProjeto.Text + "' )", conectar);
 
 
                     reader.Close();
@@ -129,15 +129,17 @@ namespace metodosMySql
            
         }
     //****************************botao para dar update no aluno ********************************************//
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
+
         {
             try
             {
-                //  string UpdatePessoa = "UPDATE Pessoa SET Email = '"+entradaemail.Text+"',Cpf = '"+entradacpf.Text+"', Celular = '"+entradacelular.Text+ "' WHERE NOME= '" + entradanome.Text + "'";
-                //  conectar.Open();
-                //  MySqlCommand comando = new MySqlCommand(UpdatePessoa,conectar);
-                //  if (comando.ExecuteNonQuery() == 1) { MessageBox.Show("dados atualizados"); } else { MessageBox.Show("nao atualizado"); }
-                //  conectar.Close();
+                  string UpdatePessoa = "UPDATE Pessoa,bolsista SET email = '"+entradaEmail.Text+"', cep= '"+entradaCep.Text+"' ,cpf = '"+entradaCpf.Text+"',bairro = '"+entradaBairro.Text+"',datadenascimento = '"+entradaDataDeNascimento.Text+"', telefone = '"+entradaTelefone.Text+"',instituicaodeensino = '"+entradaINstituiçao.Text+"',matricula = '"+entradaMatriula.Text+"',semestre = '"+entradaSemestre.Text+"', celular = '"+entradaCelular.Text+ "',  nome= '" + entradaNome.Text + "', endereco = '"+ entradaEndereço.Text+ "'  where bolsista.pessoa_id =  pessoa.id and pessoa.cod_lit = " + entradaIDLit.Text + " ";
+                  conectar.Open();
+                 MySqlCommand comando = new MySqlCommand(UpdatePessoa,conectar);
+                
+                  if ( comando.ExecuteNonQuery()== 2) { MessageBox.Show("dados atualizados"); } else { MessageBox.Show("nao atualizado"); }
+                  conectar.Close();
             }
             catch (Exception error)
             {
@@ -176,14 +178,6 @@ namespace metodosMySql
             else if (dialogResult == DialogResult.No) { }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

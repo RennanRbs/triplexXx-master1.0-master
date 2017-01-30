@@ -59,6 +59,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.entradaINstituiçao = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radiooutra = new System.Windows.Forms.RadioButton();
+            this.radioifce = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.entradaSemestre = new System.Windows.Forms.TextBox();
@@ -66,8 +68,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -91,9 +91,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Ativar = new System.Windows.Forms.CheckBox();
-            this.radiooutra = new System.Windows.Forms.RadioButton();
-            this.radioifce = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.entradaCodigo.SuspendLayout();
@@ -371,6 +371,30 @@
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             // 
+            // radiooutra
+            // 
+            this.radiooutra.AutoSize = true;
+            this.radiooutra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radiooutra.Location = new System.Drawing.Point(137, 12);
+            this.radiooutra.Name = "radiooutra";
+            this.radiooutra.Size = new System.Drawing.Size(78, 26);
+            this.radiooutra.TabIndex = 67;
+            this.radiooutra.TabStop = true;
+            this.radiooutra.Text = "Outra";
+            this.radiooutra.UseVisualStyleBackColor = true;
+            // 
+            // radioifce
+            // 
+            this.radioifce.AutoSize = true;
+            this.radioifce.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radioifce.Location = new System.Drawing.Point(20, 12);
+            this.radioifce.Name = "radioifce";
+            this.radioifce.Size = new System.Drawing.Size(72, 26);
+            this.radioifce.TabIndex = 68;
+            this.radioifce.TabStop = true;
+            this.radioifce.Text = "IFCE";
+            this.radioifce.UseVisualStyleBackColor = true;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -435,32 +459,10 @@
             this.label20.TabIndex = 43;
             this.label20.Text = "Horario de trabalho";
             // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(144, 11);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(110, 24);
-            this.checkBox3.TabIndex = 36;
-            this.checkBox3.Text = "Voluntario";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(6, 11);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(131, 24);
-            this.checkBox4.TabIndex = 37;
-            this.checkBox4.Text = "Remunerado";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox4);
-            this.groupBox2.Controls.Add(this.checkBox3);
+            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Location = new System.Drawing.Point(84, 430);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(260, 48);
@@ -471,7 +473,7 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox5.Location = new System.Drawing.Point(15, 5);
+            this.checkBox5.Location = new System.Drawing.Point(14, 11);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(42, 24);
             this.checkBox5.TabIndex = 38;
@@ -482,7 +484,7 @@
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(80, 5);
+            this.checkBox6.Location = new System.Drawing.Point(80, 10);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(38, 24);
             this.checkBox6.TabIndex = 45;
@@ -493,7 +495,7 @@
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox7.Location = new System.Drawing.Point(141, 5);
+            this.checkBox7.Location = new System.Drawing.Point(143, 11);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(40, 24);
             this.checkBox7.TabIndex = 46;
@@ -505,9 +507,9 @@
             this.entradaCodigo.Controls.Add(this.checkBox5);
             this.entradaCodigo.Controls.Add(this.checkBox7);
             this.entradaCodigo.Controls.Add(this.checkBox6);
-            this.entradaCodigo.Location = new System.Drawing.Point(532, 441);
+            this.entradaCodigo.Location = new System.Drawing.Point(532, 435);
             this.entradaCodigo.Name = "entradaCodigo";
-            this.entradaCodigo.Size = new System.Drawing.Size(189, 35);
+            this.entradaCodigo.Size = new System.Drawing.Size(189, 43);
             this.entradaCodigo.TabIndex = 47;
             this.entradaCodigo.TabStop = false;
             // 
@@ -646,6 +648,7 @@
             this.button3.TabIndex = 64;
             this.button3.Text = "Atualizar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button4
             // 
@@ -668,30 +671,6 @@
             this.Ativar.Text = "Desativar";
             this.Ativar.UseVisualStyleBackColor = true;
             // 
-            // radiooutra
-            // 
-            this.radiooutra.AutoSize = true;
-            this.radiooutra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.radiooutra.Location = new System.Drawing.Point(137, 12);
-            this.radiooutra.Name = "radiooutra";
-            this.radiooutra.Size = new System.Drawing.Size(78, 26);
-            this.radiooutra.TabIndex = 67;
-            this.radiooutra.TabStop = true;
-            this.radiooutra.Text = "Outra";
-            this.radiooutra.UseVisualStyleBackColor = true;
-            // 
-            // radioifce
-            // 
-            this.radioifce.AutoSize = true;
-            this.radioifce.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.radioifce.Location = new System.Drawing.Point(20, 12);
-            this.radioifce.Name = "radioifce";
-            this.radioifce.Size = new System.Drawing.Size(72, 26);
-            this.radioifce.TabIndex = 68;
-            this.radioifce.TabStop = true;
-            this.radioifce.Text = "IFCE";
-            this.radioifce.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::metodosMySql.Properties.Resources.lit;
@@ -701,7 +680,30 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(147, 14);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(112, 24);
+            this.radioButton1.TabIndex = 69;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Voluntario";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(5, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(141, 26);
+            this.radioButton2.TabIndex = 70;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Remunerado";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -713,7 +715,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Ativar);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.entradaOBS);
             this.Controls.Add(this.label27);
@@ -769,6 +770,7 @@
             this.Controls.Add(this.entradaBairro);
             this.Controls.Add(this.entradaNome);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -825,8 +827,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
@@ -853,6 +853,8 @@
         private System.Windows.Forms.RadioButton radiooutra;
         private System.Windows.Forms.RadioButton radioifce;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 
