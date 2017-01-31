@@ -69,9 +69,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.radiovoluntario = new System.Windows.Forms.RadioButton();
+            this.radioremunerado = new System.Windows.Forms.RadioButton();
+            this.manha = new System.Windows.Forms.CheckBox();
+            this.tarde = new System.Windows.Forms.CheckBox();
+            this.noite = new System.Windows.Forms.CheckBox();
             this.entradaCodigo = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -92,8 +94,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.Ativar = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.entradaCodigo.SuspendLayout();
@@ -112,30 +112,35 @@
             // 
             // entradaNome
             // 
+            this.entradaNome.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.entradaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaNome.Location = new System.Drawing.Point(72, 151);
             this.entradaNome.Name = "entradaNome";
-            this.entradaNome.Size = new System.Drawing.Size(437, 20);
+            this.entradaNome.Size = new System.Drawing.Size(437, 23);
             this.entradaNome.TabIndex = 1;
             // 
             // entradaBairro
             // 
+            this.entradaBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaBairro.Location = new System.Drawing.Point(62, 216);
             this.entradaBairro.Name = "entradaBairro";
-            this.entradaBairro.Size = new System.Drawing.Size(379, 20);
+            this.entradaBairro.Size = new System.Drawing.Size(379, 23);
             this.entradaBairro.TabIndex = 2;
             // 
             // entradaEndereço
             // 
+            this.entradaEndereço.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaEndereço.Location = new System.Drawing.Point(89, 181);
             this.entradaEndereço.Name = "entradaEndereço";
-            this.entradaEndereço.Size = new System.Drawing.Size(632, 20);
+            this.entradaEndereço.Size = new System.Drawing.Size(632, 23);
             this.entradaEndereço.TabIndex = 3;
             // 
             // entradaCep
             // 
+            this.entradaCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaCep.Location = new System.Drawing.Point(519, 214);
             this.entradaCep.Name = "entradaCep";
-            this.entradaCep.Size = new System.Drawing.Size(202, 20);
+            this.entradaCep.Size = new System.Drawing.Size(202, 23);
             this.entradaCep.TabIndex = 4;
             // 
             // label1
@@ -144,9 +149,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 149);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 5;
-            this.label1.Text = "nome";
+            this.label1.Text = "Nome";
             // 
             // label2
             // 
@@ -190,9 +195,11 @@
             // 
             // entradaDataDeNascimento
             // 
+            this.entradaDataDeNascimento.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.entradaDataDeNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaDataDeNascimento.Location = new System.Drawing.Point(165, 251);
             this.entradaDataDeNascimento.Name = "entradaDataDeNascimento";
-            this.entradaDataDeNascimento.Size = new System.Drawing.Size(276, 20);
+            this.entradaDataDeNascimento.Size = new System.Drawing.Size(276, 23);
             this.entradaDataDeNascimento.TabIndex = 10;
             // 
             // button2
@@ -217,9 +224,10 @@
             // 
             // entradaMatriula
             // 
+            this.entradaMatriula.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaMatriula.Location = new System.Drawing.Point(594, 147);
             this.entradaMatriula.Name = "entradaMatriula";
-            this.entradaMatriula.Size = new System.Drawing.Size(127, 20);
+            this.entradaMatriula.Size = new System.Drawing.Size(127, 23);
             this.entradaMatriula.TabIndex = 14;
             // 
             // label7
@@ -244,9 +252,13 @@
             // 
             // entradaIDLit
             // 
+            this.entradaIDLit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.entradaIDLit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.entradaIDLit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.entradaIDLit.ForeColor = System.Drawing.Color.White;
             this.entradaIDLit.Location = new System.Drawing.Point(366, 97);
             this.entradaIDLit.Name = "entradaIDLit";
-            this.entradaIDLit.Size = new System.Drawing.Size(189, 20);
+            this.entradaIDLit.Size = new System.Drawing.Size(189, 24);
             this.entradaIDLit.TabIndex = 17;
             // 
             // label9
@@ -271,16 +283,18 @@
             // 
             // entradaRg
             // 
+            this.entradaRg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaRg.Location = new System.Drawing.Point(48, 288);
             this.entradaRg.Name = "entradaRg";
-            this.entradaRg.Size = new System.Drawing.Size(393, 20);
+            this.entradaRg.Size = new System.Drawing.Size(393, 23);
             this.entradaRg.TabIndex = 21;
             // 
             // entradaEmail
             // 
+            this.entradaEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaEmail.Location = new System.Drawing.Point(59, 325);
             this.entradaEmail.Name = "entradaEmail";
-            this.entradaEmail.Size = new System.Drawing.Size(382, 20);
+            this.entradaEmail.Size = new System.Drawing.Size(382, 23);
             this.entradaEmail.TabIndex = 22;
             // 
             // label12
@@ -305,16 +319,18 @@
             // 
             // entradaCpf
             // 
+            this.entradaCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaCpf.Location = new System.Drawing.Point(519, 251);
             this.entradaCpf.Name = "entradaCpf";
-            this.entradaCpf.Size = new System.Drawing.Size(202, 20);
+            this.entradaCpf.Size = new System.Drawing.Size(202, 23);
             this.entradaCpf.TabIndex = 25;
             // 
             // entradaCelular
             // 
+            this.entradaCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaCelular.Location = new System.Drawing.Point(532, 288);
             this.entradaCelular.Name = "entradaCelular";
-            this.entradaCelular.Size = new System.Drawing.Size(189, 20);
+            this.entradaCelular.Size = new System.Drawing.Size(189, 23);
             this.entradaCelular.TabIndex = 26;
             // 
             // label11
@@ -329,9 +345,10 @@
             // 
             // entradaTelefone
             // 
+            this.entradaTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaTelefone.Location = new System.Drawing.Point(542, 325);
             this.entradaTelefone.Name = "entradaTelefone";
-            this.entradaTelefone.Size = new System.Drawing.Size(179, 20);
+            this.entradaTelefone.Size = new System.Drawing.Size(179, 23);
             this.entradaTelefone.TabIndex = 28;
             // 
             // label14
@@ -356,9 +373,10 @@
             // 
             // entradaINstituiçao
             // 
+            this.entradaINstituiçao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaINstituiçao.Location = new System.Drawing.Point(519, 363);
             this.entradaINstituiçao.Name = "entradaINstituiçao";
-            this.entradaINstituiçao.Size = new System.Drawing.Size(202, 20);
+            this.entradaINstituiçao.Size = new System.Drawing.Size(202, 23);
             this.entradaINstituiçao.TabIndex = 33;
             // 
             // groupBox1
@@ -417,16 +435,18 @@
             // 
             // entradaSemestre
             // 
+            this.entradaSemestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaSemestre.Location = new System.Drawing.Point(529, 406);
             this.entradaSemestre.Name = "entradaSemestre";
-            this.entradaSemestre.Size = new System.Drawing.Size(192, 20);
+            this.entradaSemestre.Size = new System.Drawing.Size(192, 23);
             this.entradaSemestre.TabIndex = 39;
             // 
             // entradaCurso
             // 
+            this.entradaCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaCurso.Location = new System.Drawing.Point(59, 404);
             this.entradaCurso.Name = "entradaCurso";
-            this.entradaCurso.Size = new System.Drawing.Size(380, 20);
+            this.entradaCurso.Size = new System.Drawing.Size(380, 23);
             this.entradaCurso.TabIndex = 40;
             // 
             // label18
@@ -461,52 +481,76 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.radiovoluntario);
+            this.groupBox2.Controls.Add(this.radioremunerado);
             this.groupBox2.Location = new System.Drawing.Point(84, 430);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(260, 48);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             // 
-            // checkBox5
+            // radiovoluntario
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox5.Location = new System.Drawing.Point(14, 11);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(42, 24);
-            this.checkBox5.TabIndex = 38;
-            this.checkBox5.Text = "M";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.radiovoluntario.AutoSize = true;
+            this.radiovoluntario.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radiovoluntario.Location = new System.Drawing.Point(147, 14);
+            this.radiovoluntario.Name = "radiovoluntario";
+            this.radiovoluntario.Size = new System.Drawing.Size(112, 24);
+            this.radiovoluntario.TabIndex = 69;
+            this.radiovoluntario.TabStop = true;
+            this.radiovoluntario.Text = "Voluntario";
+            this.radiovoluntario.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // radioremunerado
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(80, 10);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(38, 24);
-            this.checkBox6.TabIndex = 45;
-            this.checkBox6.Text = "T";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.radioremunerado.AutoSize = true;
+            this.radioremunerado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.radioremunerado.Location = new System.Drawing.Point(5, 12);
+            this.radioremunerado.Name = "radioremunerado";
+            this.radioremunerado.Size = new System.Drawing.Size(141, 26);
+            this.radioremunerado.TabIndex = 70;
+            this.radioremunerado.TabStop = true;
+            this.radioremunerado.Text = "Remunerado";
+            this.radioremunerado.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // manha
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.checkBox7.Location = new System.Drawing.Point(143, 11);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(40, 24);
-            this.checkBox7.TabIndex = 46;
-            this.checkBox7.Text = "N";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.manha.AutoSize = true;
+            this.manha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.manha.Location = new System.Drawing.Point(14, 11);
+            this.manha.Name = "manha";
+            this.manha.Size = new System.Drawing.Size(42, 24);
+            this.manha.TabIndex = 38;
+            this.manha.Text = "M";
+            this.manha.UseVisualStyleBackColor = true;
+            // 
+            // tarde
+            // 
+            this.tarde.AutoSize = true;
+            this.tarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.tarde.Location = new System.Drawing.Point(80, 10);
+            this.tarde.Name = "tarde";
+            this.tarde.Size = new System.Drawing.Size(38, 24);
+            this.tarde.TabIndex = 45;
+            this.tarde.Text = "T";
+            this.tarde.UseVisualStyleBackColor = true;
+            // 
+            // noite
+            // 
+            this.noite.AutoSize = true;
+            this.noite.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.noite.Location = new System.Drawing.Point(143, 11);
+            this.noite.Name = "noite";
+            this.noite.Size = new System.Drawing.Size(40, 24);
+            this.noite.TabIndex = 46;
+            this.noite.Text = "N";
+            this.noite.UseVisualStyleBackColor = true;
             // 
             // entradaCodigo
             // 
-            this.entradaCodigo.Controls.Add(this.checkBox5);
-            this.entradaCodigo.Controls.Add(this.checkBox7);
-            this.entradaCodigo.Controls.Add(this.checkBox6);
+            this.entradaCodigo.Controls.Add(this.manha);
+            this.entradaCodigo.Controls.Add(this.noite);
+            this.entradaCodigo.Controls.Add(this.tarde);
             this.entradaCodigo.Location = new System.Drawing.Point(532, 435);
             this.entradaCodigo.Name = "entradaCodigo";
             this.entradaCodigo.Size = new System.Drawing.Size(189, 43);
@@ -681,30 +725,6 @@
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(147, 14);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(112, 24);
-            this.radioButton1.TabIndex = 69;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Voluntario";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(5, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(141, 26);
-            this.radioButton2.TabIndex = 70;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Remunerado";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -828,9 +848,9 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox manha;
+        private System.Windows.Forms.CheckBox tarde;
+        private System.Windows.Forms.CheckBox noite;
         private System.Windows.Forms.GroupBox entradaCodigo;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -853,8 +873,8 @@
         private System.Windows.Forms.RadioButton radiooutra;
         private System.Windows.Forms.RadioButton radioifce;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radiovoluntario;
+        private System.Windows.Forms.RadioButton radioremunerado;
     }
 }
 
