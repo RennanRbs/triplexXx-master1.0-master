@@ -38,8 +38,8 @@ namespace metodosMySql
 
                 MySqlCommand comandoPessoa = new MySqlCommand("INSERT INTO Pessoa(nome,email,cpf,celular,cod_lit) VALUES('" + entradaNome.Text + "','" + entradaEmail.Text + "','" + entradaCpf.Text + "','" + entradaCelular.Text + "', '" + entradaIDLit.Text + "' )", conectar);
                 MySqlCommand comandoselect = new MySqlCommand(" select id from pessoa order by id DESC limit 1", conectar);
-                MySqlCommand comandoprofessor = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
-                MySqlCommand comandoremunerado = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
+                MySqlCommand comandoselectprofessor = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
+                MySqlCommand comandoselectremunerado = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
 
                 comandoPessoa.ExecuteNonQuery();
 
@@ -51,12 +51,26 @@ namespace metodosMySql
                     MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento,cep,manha,tarde,noite,radioifce,radiooutra,radioremunerado,radiovoluntario)"+
                         " VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "'"+
                         " ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "','"+entradaCep.Text+"',"+m+","+t+","+n+","+ifce+","+outra+", "+remunerado+", "+voluntario+")", conectar);
-                    
+
+                    MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO professor(pessoa_id,projeto)VALUES(" + reader.GetString("id") + ", '" + entradaProjeto.Text + "')", conectar);
+
                     reader.Close();
                     comandoBolsista.ExecuteNonQuery();
-                   
+                    comandoprofessor.ExecuteNonQuery();
+                    
+                }
+
+                reader = comandoselectremunerado.ExecuteReader();
+
+                if (reader.Read()) {
+                    MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO remunerado(bolsista_id,agencia,conta,orientador,fonte_bolsa,banco)VALUES (" + reader.GetString("id") + ", '"+entradaAgencia.Text+"', '"+entradaConta.Text+"', '"+entradaOrientador.Text+"','"+entradaFonteDaBolsa.Text+"', '"+entradaBanco.Text+"')", conectar);
+                    reader.Close();
+                    comandoremunerado.ExecuteNonQuery();
                     MessageBox.Show("Salvo com sucesso, que Demais!");
                 }
+
+
+
 
 
                 conectar.Close();
@@ -84,10 +98,12 @@ namespace metodosMySql
                     MySqlDataReader reader;
                     conectar.Open();
 
-                    string selecionarpessoa = "select bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,bolsista.cep ," +
+                    string selecionarpessoa = "select  professor.projeto,remunerado.banco ,remunerado.agencia,remunerado.conta,remunerado.orientador,remunerado.fonte_bolsa,"+
+                                              "bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,bolsista.cep ," +
                                               "bolsista.matricula, bolsista.curso, bolsista.telefone, pessoa.cod_lit, pessoa.celular,bolsista.datadenascimento" +
-                                              " ,pessoa.email, pessoa.cpf, pessoa.nome, bolsista.manha,bolsista.tarde,bolsista.noite,bolsista.radioifce,bolsista.radiooutra,bolsista.radioremunerado,bolsista.radiovoluntario " +
-                                              " from bolsista, pessoa where bolsista.pessoa_id =  pessoa.id and pessoa.cod_lit = " + entradaIDLit.Text + "; ";
+                                              " ,pessoa.email, pessoa.cpf, pessoa.nome, bolsista.manha,bolsista.tarde,bolsista.noite,bolsista.radioifce,bolsista.radiooutra,"+
+                                              "bolsista.radioremunerado,bolsista.radiovoluntario " +
+                                              " from bolsista ,pessoa ,professor ,remunerado where bolsista.pessoa_id =  pessoa.id and pessoa.id = professor.pessoa_id and bolsista.id = remunerado.bolsista_id and  pessoa.cod_lit = " + entradaIDLit.Text + "; ";
 
 
 
@@ -112,6 +128,12 @@ namespace metodosMySql
                         entradaTelefone.Text = reader.GetString("telefone");
                         entradaDataDeNascimento.Text = reader.GetString("datadenascimento");
                         entradaCurso.Text = reader.GetString("curso");
+                        entradaProjeto.Text = reader.GetString("projeto");
+                        entradaAgencia.Text = reader.GetString("agencia");
+                        entradaConta.Text = reader.GetString("conta");
+                        entradaOrientador.Text = reader.GetString("orientador");
+                        entradaFonteDaBolsa.Text = reader.GetString("fonte_bolsa");
+                        entradaBanco.Text = reader.GetString("banco");
                         
                         if (reader.GetBoolean("manha")) { manha.Checked = true; }
                         if (reader.GetBoolean("tarde") ) { tarde.Checked = true; }
@@ -153,11 +175,11 @@ namespace metodosMySql
         {
             try
             {
-                  string UpdatePessoa = "UPDATE pessoa,bolsista SET  rg = '"+entradaRg.Text+"',radioremunerado = "+radioremunerado.Checked+",radiovoluntario = "+radiovoluntario.Checked+",radiooutra = "+radiooutra.Checked+",radioifce = "+ radioifce.Checked+",manha = "+manha.Checked+",tarde ="+tarde.Checked+",noite = "+noite.Checked+"  ,email = '"+entradaEmail.Text+"', cep= '"+entradaCep.Text+"' ,cpf = '"+entradaCpf.Text+"',bairro = '"+entradaBairro.Text+"',datadenascimento = '"+entradaDataDeNascimento.Text+"', telefone = '"+entradaTelefone.Text+"',instituicaodeensino = '"+entradaINstituiçao.Text+"',matricula = '"+entradaMatriula.Text+"',semestre = '"+entradaSemestre.Text+"', celular = '"+entradaCelular.Text+ "',curso = '"+entradaCurso.Text+"',  nome= '" + entradaNome.Text + "', endereco = '"+ entradaEndereço.Text+ "'  where bolsista.pessoa_id =  pessoa.id and pessoa.cod_lit = " + entradaIDLit.Text + " ";
+                  string UpdatePessoa = "UPDATE pessoa,bolsista,professor,remunerado SET  fonte_bolsa = '"+entradaFonteDaBolsa.Text+"',orientador = '"+entradaOrientador.Text+"',banco = '"+entradaBanco.Text+"',conta = '"+entradaConta.Text+"',agencia = '"+entradaAgencia.Text+"',projeto = '"+entradaProjeto.Text+"' ,rg = '"+entradaRg.Text+"',radioremunerado = "+radioremunerado.Checked+",radiovoluntario = "+radiovoluntario.Checked+",radiooutra = "+radiooutra.Checked+",radioifce = "+ radioifce.Checked+",manha = "+manha.Checked+",tarde ="+tarde.Checked+",noite = "+noite.Checked+"  ,email = '"+entradaEmail.Text+"', cep= '"+entradaCep.Text+"' ,cpf = '"+entradaCpf.Text+"',bairro = '"+entradaBairro.Text+"',datadenascimento = '"+entradaDataDeNascimento.Text+"', telefone = '"+entradaTelefone.Text+"',instituicaodeensino = '"+entradaINstituiçao.Text+"',matricula = '"+entradaMatriula.Text+"',semestre = '"+entradaSemestre.Text+"', celular = '"+entradaCelular.Text+ "',curso = '"+entradaCurso.Text+"',  nome= '" + entradaNome.Text + "', endereco = '"+ entradaEndereço.Text+ "'  where bolsista.pessoa_id =  pessoa.id and bolsista.id = remunerado.bolsista_id and pessoa.id = professor.pessoa_id and pessoa.cod_lit = " + entradaIDLit.Text + " ";
                   conectar.Open();
                  MySqlCommand comando = new MySqlCommand(UpdatePessoa,conectar);
                 
-                  if ( comando.ExecuteNonQuery()== 2) { MessageBox.Show("dados atualizados"); } else { MessageBox.Show("nao atualizado"); }
+                  if ( comando.ExecuteNonQuery()== 4) { MessageBox.Show("dados atualizados"); } else { MessageBox.Show("nao atualizado"); }
                   conectar.Close();
             }
             catch (Exception error)

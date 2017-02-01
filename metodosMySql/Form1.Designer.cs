@@ -579,23 +579,26 @@
             // 
             // entradaProjeto
             // 
+            this.entradaProjeto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaProjeto.Location = new System.Drawing.Point(72, 476);
             this.entradaProjeto.Name = "entradaProjeto";
-            this.entradaProjeto.Size = new System.Drawing.Size(649, 20);
+            this.entradaProjeto.Size = new System.Drawing.Size(649, 23);
             this.entradaProjeto.TabIndex = 50;
             // 
             // entradaFonteDaBolsa
             // 
+            this.entradaFonteDaBolsa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaFonteDaBolsa.Location = new System.Drawing.Point(141, 524);
             this.entradaFonteDaBolsa.Name = "entradaFonteDaBolsa";
-            this.entradaFonteDaBolsa.Size = new System.Drawing.Size(278, 20);
+            this.entradaFonteDaBolsa.Size = new System.Drawing.Size(278, 23);
             this.entradaFonteDaBolsa.TabIndex = 51;
             // 
             // entradaOrientador
             // 
+            this.entradaOrientador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaOrientador.Location = new System.Drawing.Point(515, 524);
             this.entradaOrientador.Name = "entradaOrientador";
-            this.entradaOrientador.Size = new System.Drawing.Size(206, 20);
+            this.entradaOrientador.Size = new System.Drawing.Size(206, 23);
             this.entradaOrientador.TabIndex = 52;
             // 
             // label23
@@ -630,16 +633,18 @@
             // 
             // entradaBanco
             // 
+            this.entradaBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaBanco.Location = new System.Drawing.Point(213, 567);
             this.entradaBanco.Name = "entradaBanco";
-            this.entradaBanco.Size = new System.Drawing.Size(148, 20);
+            this.entradaBanco.Size = new System.Drawing.Size(148, 23);
             this.entradaBanco.TabIndex = 56;
             // 
             // entradaAgencia
             // 
+            this.entradaAgencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaAgencia.Location = new System.Drawing.Point(386, 569);
             this.entradaAgencia.Name = "entradaAgencia";
-            this.entradaAgencia.Size = new System.Drawing.Size(123, 20);
+            this.entradaAgencia.Size = new System.Drawing.Size(123, 23);
             this.entradaAgencia.TabIndex = 57;
             // 
             // label26
@@ -654,9 +659,10 @@
             // 
             // entradaConta
             // 
+            this.entradaConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaConta.Location = new System.Drawing.Point(568, 571);
             this.entradaConta.Name = "entradaConta";
-            this.entradaConta.Size = new System.Drawing.Size(153, 20);
+            this.entradaConta.Size = new System.Drawing.Size(153, 23);
             this.entradaConta.TabIndex = 59;
             // 
             // label27
