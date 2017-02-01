@@ -38,6 +38,8 @@ namespace metodosMySql
 
                 MySqlCommand comandoPessoa = new MySqlCommand("INSERT INTO Pessoa(nome,email,cpf,celular,cod_lit) VALUES('" + entradaNome.Text + "','" + entradaEmail.Text + "','" + entradaCpf.Text + "','" + entradaCelular.Text + "', '" + entradaIDLit.Text + "' )", conectar);
                 MySqlCommand comandoselect = new MySqlCommand(" select id from pessoa order by id DESC limit 1", conectar);
+                MySqlCommand comandoprofessor = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
+                MySqlCommand comandoremunerado = new MySqlCommand("SELECT id FROM bolsista order by id desc limit 1",conectar);
 
                 comandoPessoa.ExecuteNonQuery();
 
@@ -46,20 +48,21 @@ namespace metodosMySql
                 if (reader.Read())
                 {
 
-                    MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento,cep,manha,tarde,noite,radioifce,radiooutra,radioremunerado,radiovoluntario) VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "' ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "','"+entradaCep.Text+"',"+m+","+t+","+n+","+ifce+","+outra+", "+remunerado+", "+voluntario+")", conectar);
+                    MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento,cep,manha,tarde,noite,radioifce,radiooutra,radioremunerado,radiovoluntario)"+
+                        " VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "'"+
+                        " ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "','"+entradaCep.Text+"',"+m+","+t+","+n+","+ifce+","+outra+", "+remunerado+", "+voluntario+")", conectar);
                     
-                    // MySqlCommand comandoremunerado = new MySqlCommand("INSERT INTO Remunerado(agencia,conta,orientador,fonte_bolsa) VALUES('" + entradaAgencia.Text + "','" + entradaConta.Text + "','" + entradaOrientador.Text + "','" + entradaFonteDaBolsa.Text + "' )", conectar);
-                    //MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO Professor(pessoa_id,projeto) VALUES(" + reader.GetString("id") + " ,'" + entradaProjeto.Text + "' )", conectar);
-
-
                     reader.Close();
                     comandoBolsista.ExecuteNonQuery();
-                   // comandoremunerado.ExecuteNonQuery();
-                   // comandoprofessor.ExecuteNonQuery();
+                   
                     MessageBox.Show("Salvo com sucesso, que Demais!");
                 }
+
+
                 conectar.Close();
             }
+
+            
 
 
             catch (Exception error)
