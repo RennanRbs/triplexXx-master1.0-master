@@ -48,9 +48,9 @@ namespace metodosMySql
                 if (reader.Read())
                 {
 
-                    MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento,cep,manha,tarde,noite,radioifce,radiooutra,radioremunerado,radiovoluntario)"+
+                    MySqlCommand comandoBolsista = new MySqlCommand("INSERT INTO Bolsista(pessoa_id,endereco,bairro,rg,telefone,curso,matricula,instituicaodeensino,semestre,datadenascimento,cep,manha,tarde,noite,radioifce,radiooutra,radioremunerado,radiovoluntario,obs)"+
                         " VALUES(" + reader.GetString("id") + " , '" + entradaEndereço.Text + "','" + entradaBairro.Text + "','" + entradaRg.Text + "','" + entradaTelefone.Text + "','" + entradaCurso.Text + "','" + entradaMatriula.Text + "','" + entradaINstituiçao.Text + "'"+
-                        " ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "','"+entradaCep.Text+"',"+m+","+t+","+n+","+ifce+","+outra+", "+remunerado+", "+voluntario+")", conectar);
+                        " ,'" + entradaSemestre.Text + "','" + entradaDataDeNascimento.Text + "','"+entradaCep.Text+"',"+m+","+t+","+n+","+ifce+","+outra+", "+remunerado+", "+voluntario+" , '"+entradaOBS.Text+"')", conectar);
 
                     MySqlCommand comandoprofessor = new MySqlCommand("INSERT INTO professor(pessoa_id,projeto)VALUES(" + reader.GetString("id") + ", '" + entradaProjeto.Text + "')", conectar);
 
@@ -98,7 +98,7 @@ namespace metodosMySql
                     MySqlDataReader reader;
                     conectar.Open();
 
-                    string selecionarpessoa = "select  professor.projeto,remunerado.banco ,remunerado.agencia,remunerado.conta,remunerado.orientador,remunerado.fonte_bolsa,"+
+                    string selecionarpessoa = "select  bolsista.obs,professor.projeto,remunerado.banco ,remunerado.agencia,remunerado.conta,remunerado.orientador,remunerado.fonte_bolsa,"+
                                               "bolsista.semestre, bolsista.endereco, bolsista.bairro, bolsista.rg, bolsista.instituicaodeensino,bolsista.cep ," +
                                               "bolsista.matricula, bolsista.curso, bolsista.telefone, pessoa.cod_lit, pessoa.celular,bolsista.datadenascimento" +
                                               " ,pessoa.email, pessoa.cpf, pessoa.nome, bolsista.manha,bolsista.tarde,bolsista.noite,bolsista.radioifce,bolsista.radiooutra,"+
@@ -134,6 +134,7 @@ namespace metodosMySql
                         entradaOrientador.Text = reader.GetString("orientador");
                         entradaFonteDaBolsa.Text = reader.GetString("fonte_bolsa");
                         entradaBanco.Text = reader.GetString("banco");
+                        entradaOBS.Text = reader.GetString("obs");
                         
                         if (reader.GetBoolean("manha")) { manha.Checked = true; }
                         if (reader.GetBoolean("tarde") ) { tarde.Checked = true; }
@@ -175,7 +176,7 @@ namespace metodosMySql
         {
             try
             {
-                  string UpdatePessoa = "UPDATE pessoa,bolsista,professor,remunerado SET  fonte_bolsa = '"+entradaFonteDaBolsa.Text+"',orientador = '"+entradaOrientador.Text+"',banco = '"+entradaBanco.Text+"',conta = '"+entradaConta.Text+"',agencia = '"+entradaAgencia.Text+"',projeto = '"+entradaProjeto.Text+"' ,rg = '"+entradaRg.Text+"',radioremunerado = "+radioremunerado.Checked+",radiovoluntario = "+radiovoluntario.Checked+",radiooutra = "+radiooutra.Checked+",radioifce = "+ radioifce.Checked+",manha = "+manha.Checked+",tarde ="+tarde.Checked+",noite = "+noite.Checked+"  ,email = '"+entradaEmail.Text+"', cep= '"+entradaCep.Text+"' ,cpf = '"+entradaCpf.Text+"',bairro = '"+entradaBairro.Text+"',datadenascimento = '"+entradaDataDeNascimento.Text+"', telefone = '"+entradaTelefone.Text+"',instituicaodeensino = '"+entradaINstituiçao.Text+"',matricula = '"+entradaMatriula.Text+"',semestre = '"+entradaSemestre.Text+"', celular = '"+entradaCelular.Text+ "',curso = '"+entradaCurso.Text+"',  nome= '" + entradaNome.Text + "', endereco = '"+ entradaEndereço.Text+ "'  where bolsista.pessoa_id =  pessoa.id and bolsista.id = remunerado.bolsista_id and pessoa.id = professor.pessoa_id and pessoa.cod_lit = " + entradaIDLit.Text + " ";
+                  string UpdatePessoa = "UPDATE pessoa,bolsista,professor,remunerado SET  obs = '"+entradaOBS.Text+"',fonte_bolsa = '"+entradaFonteDaBolsa.Text+"',orientador = '"+entradaOrientador.Text+"',banco = '"+entradaBanco.Text+"',conta = '"+entradaConta.Text+"',agencia = '"+entradaAgencia.Text+"',projeto = '"+entradaProjeto.Text+"' ,rg = '"+entradaRg.Text+"',radioremunerado = "+radioremunerado.Checked+",radiovoluntario = "+radiovoluntario.Checked+",radiooutra = "+radiooutra.Checked+",radioifce = "+ radioifce.Checked+",manha = "+manha.Checked+",tarde ="+tarde.Checked+",noite = "+noite.Checked+"  ,email = '"+entradaEmail.Text+"', cep= '"+entradaCep.Text+"' ,cpf = '"+entradaCpf.Text+"',bairro = '"+entradaBairro.Text+"',datadenascimento = '"+entradaDataDeNascimento.Text+"', telefone = '"+entradaTelefone.Text+"',instituicaodeensino = '"+entradaINstituiçao.Text+"',matricula = '"+entradaMatriula.Text+"',semestre = '"+entradaSemestre.Text+"', celular = '"+entradaCelular.Text+ "',curso = '"+entradaCurso.Text+"',  nome= '" + entradaNome.Text + "', endereco = '"+ entradaEndereço.Text+ "'  where bolsista.pessoa_id =  pessoa.id and bolsista.id = remunerado.bolsista_id and pessoa.id = professor.pessoa_id and pessoa.cod_lit = " + entradaIDLit.Text + " ";
                   conectar.Open();
                  MySqlCommand comando = new MySqlCommand(UpdatePessoa,conectar);
                 
@@ -224,6 +225,10 @@ namespace metodosMySql
             else if (dialogResult == DialogResult.No) { }
         }
 
-       
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 outroform = new Form2();
+            outroform.Show();
+        }
     }
 }

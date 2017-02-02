@@ -93,6 +93,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Ativar = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,10 +114,10 @@
             // entradaNome
             // 
             this.entradaNome.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.entradaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entradaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaNome.Location = new System.Drawing.Point(72, 151);
             this.entradaNome.Name = "entradaNome";
-            this.entradaNome.Size = new System.Drawing.Size(437, 23);
+            this.entradaNome.Size = new System.Drawing.Size(437, 26);
             this.entradaNome.TabIndex = 1;
             // 
             // entradaBairro
@@ -204,7 +205,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(578, 78);
+            this.button2.Location = new System.Drawing.Point(578, 82);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 39);
             this.button2.TabIndex = 11;
@@ -677,6 +678,7 @@
             // 
             // entradaOBS
             // 
+            this.entradaOBS.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.entradaOBS.Location = new System.Drawing.Point(121, 611);
             this.entradaOBS.Name = "entradaOBS";
             this.entradaOBS.Size = new System.Drawing.Size(313, 68);
@@ -721,6 +723,17 @@
             this.Ativar.Text = "Desativar";
             this.Ativar.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(675, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(56, 46);
+            this.button5.TabIndex = 68;
+            this.button5.Text = "Nav";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::metodosMySql.Properties.Resources.lit;
@@ -735,9 +748,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(737, 733);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Ativar);
             this.Controls.Add(this.button4);
@@ -798,7 +813,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro";
             this.groupBox1.ResumeLayout(false);
@@ -881,6 +898,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton radiovoluntario;
         private System.Windows.Forms.RadioButton radioremunerado;
+        private System.Windows.Forms.Button button5;
     }
 }
 
