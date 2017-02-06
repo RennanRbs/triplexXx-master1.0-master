@@ -12,10 +12,13 @@ namespace metodosMySql
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
         }
+        public string passando { get; set; }
+        
         MySqlConnection conectar = new MySqlConnection("Server=lamp01ppgcc.ddns.net; Database=cadastro_bolsistas_lit; Uid=controlador_lit; Pwd=123qwe!@#");
 
    //***************************************************** salvar Bolsista *****************************************************************************//
@@ -225,10 +228,21 @@ namespace metodosMySql
             else if (dialogResult == DialogResult.No) { }
         }
 
+
+//************************************************* abrir aba de busca ********************************************************//
         private void button5_Click(object sender, EventArgs e)
         {
-            Form2 outroform = new Form2();
+            passando = entradaNome.Text;
+            
+            Form2 outroform = new Form2(passando);
             outroform.Show();
+            
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

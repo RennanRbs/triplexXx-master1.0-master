@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.entradaDataDeNascimento = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.entradaMatriula = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -95,6 +94,7 @@
             this.Ativar = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.entradaCodigo.SuspendLayout();
@@ -117,7 +117,7 @@
             this.entradaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaNome.Location = new System.Drawing.Point(72, 151);
             this.entradaNome.Name = "entradaNome";
-            this.entradaNome.Size = new System.Drawing.Size(437, 26);
+            this.entradaNome.Size = new System.Drawing.Size(403, 26);
             this.entradaNome.TabIndex = 1;
             // 
             // entradaBairro
@@ -203,16 +203,6 @@
             this.entradaDataDeNascimento.Size = new System.Drawing.Size(276, 23);
             this.entradaDataDeNascimento.TabIndex = 10;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(578, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 39);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -245,7 +235,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(294, 97);
+            this.label8.Location = new System.Drawing.Point(339, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 20);
             this.label8.TabIndex = 16;
@@ -257,7 +247,7 @@
             this.entradaIDLit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.entradaIDLit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.entradaIDLit.ForeColor = System.Drawing.Color.White;
-            this.entradaIDLit.Location = new System.Drawing.Point(366, 97);
+            this.entradaIDLit.Location = new System.Drawing.Point(411, 82);
             this.entradaIDLit.Name = "entradaIDLit";
             this.entradaIDLit.Size = new System.Drawing.Size(189, 24);
             this.entradaIDLit.TabIndex = 17;
@@ -725,13 +715,15 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.BackgroundImage = global::metodosMySql.Properties.Resources.search_148820_960_720;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(675, 12);
+            this.button5.Location = new System.Drawing.Point(475, 150);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(56, 46);
+            this.button5.Size = new System.Drawing.Size(30, 28);
             this.button5.TabIndex = 68;
-            this.button5.Text = "Nav";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // pictureBox1
@@ -743,6 +735,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Menu;
+            this.button2.BackgroundImage = global::metodosMySql.Properties.Resources.search_148820_960_720;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(599, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 38);
+            this.button2.TabIndex = 11;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -814,10 +818,13 @@
             this.Controls.Add(this.button3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
